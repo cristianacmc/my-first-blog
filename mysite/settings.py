@@ -37,8 +37,26 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
     'blog',
 )
+
+# CK EDITOR
+CKEDITOR_MEDIA_PREFIX = "/media/ckeditor/"
+CKEDITOR_UPLOAD_PATH =  os.path.join( MEDIA_ROOT, 'uploads/ckuploads' )
+CKEDITOR_UPLOAD_PREFIX = "%smedia/uploads/ckuploads/" % (SITE_URL,)
+CKEDITOR_CONFIGS = {
+	'default': {
+		'toolbar': 'Basic',
+		'height': 300,
+		'width': 300,
+	},
+	'full': {
+		'toolbar': 'Full',
+		'height': 300,
+		'width': 300,
+	},
+}
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -100,5 +118,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+SITE_URL = 'http://127.0.0.1:8000/'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
